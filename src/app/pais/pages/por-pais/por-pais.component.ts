@@ -9,20 +9,20 @@ import { Country } from '../../interfaces/pais.interface';
   ]
 })
 export class PorPaisComponent {
-  @Input() paises: Country[] = [];
   termino: string = '';
   hayError: boolean = false;
-  // paises: Country[] = [];
+  paises: Country[] = [];
 
   constructor(private paisService: PaisService) { }
 
-  buscar(): void {
+  buscar(termino: string) {
+    this.hayError = false;
+    this.termino = termino;
 
-    this.paisService.buscarPais(this.termino)
+    this.paisService.buscarPais(termino)
       .subscribe(paises => {
-        this.hayError = false;
-        this.paises = paises;
         console.log(this.paises);
+        this.paises = paises;
 
       }, (err) => {
         this.hayError = true;
@@ -30,14 +30,8 @@ export class PorPaisComponent {
       });
   }
 
-
-
-
-
-
-
-
-
-
-
+  sugerencias(termino: string) {
+    this.hayError = false;
+    // TODO: crear sugerencias
+  }
 }
