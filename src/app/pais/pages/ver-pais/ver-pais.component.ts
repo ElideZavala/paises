@@ -26,8 +26,8 @@ export class VerPaisComponent implements OnInit {
         switchMap(({ id }) => this.paisService.getPaisPorAlpha(id)),
         tap(console.log)
       )
-      .subscribe(resp => {
-        console.log(resp)
+      .subscribe(pais => {
+        this.pais = pais;
       })
   }
 }
