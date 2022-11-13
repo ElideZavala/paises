@@ -1,24 +1,32 @@
+<div class="animate__animated animate__bounce animate__faster">
+  <h2>Por capital</h2>
 
-<h2>Por capital</h2>
-<hr>
+  <hr>
 
-<div class="row">
-  <div class="col">
-    <app-pais-input
-      (onEnter)="buscar($event)"
-      (onDebounce)="sugerencias($event)"
-      placeholder="Buscar capital"
-    ></app-pais-input>
+  <div class="row">
+    <div class="col">
+      <app-pais-input
+        (onEnter)="buscar($event)"
+        (onDebounce)="sugerencias($event)"
+        placeholder="Buscar capital"
+      ></app-pais-input>
+    </div>
   </div>
+
+  <hr>
 </div>
 
-<hr>
-
-<div *ngIf="hayError" class="alert alert-danger">
+<div
+  *ngIf="hayError"
+  class="alert alert-danger"
+>
   No se encontró nada con el término de {{ termino }}
 </div>
 
-<div *ngIf="!hayError" class="row">
+<div
+  *ngIf="!hayError"
+  class="row"
+>
   <div class="col">
     <app-pais-table [paises]="capitales"></app-pais-table>
   </div>

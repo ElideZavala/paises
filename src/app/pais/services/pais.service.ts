@@ -13,7 +13,7 @@ export class PaisService {
 
   get httpParams() {
     return new HttpParams()
-      .set('fields', 'name,capital,alpha2code,flag,population')
+      .set('fields', 'name,capital,alpha2Code,flag,population')
   }
 
   constructor(private http: HttpClient) { }
